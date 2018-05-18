@@ -10,7 +10,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "1.9.94",
 	"appid": "touristappid",
-	"projectname": "multi_tab_list",
+	"projectname": "MultiTapList",
 	"condition": {
 		"search": {
 			"current": -1,
