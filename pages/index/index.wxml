@@ -1,0 +1,6 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="usermotto">
+    <view class="user-motto" bindtap='goto_multi_list'>{{motto}}</view>
+  </view>
+</view>

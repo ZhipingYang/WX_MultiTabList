@@ -1,0 +1,57 @@
+<view class="stv-container">
+  
+  <!-- 头部Tabs -->
+  <view class="tab-bar">
+    <view wx:for="{{tabs}}" wx:key="unique" data-index=
+    "{{index}}" bindtap="handlerTabTap" class="tab {{activeTab==index?'tab-active':''}}" style="width: {{stv.windowWidth/tabs.length}}px">
+      <text>{{item.title}}</text>
+    </view>
+    <view style="width: {{stv.lineWidth}}px; left: {{stv.offset/tabs.length}}px" class="under-line {{!stv.tStart? 'withAnimate': ''}}"></view>
+  </view>
+
+  <!-- 横向滚动view -->
+  <view class="scroll-view">
+    <!-- 手势响应view -->
+    <view bindtouchstart="handlerStart" catchtouchmove="handlerMove" bindtouchcancel="handlerCancel" bindtouchend="handlerEnd"  class="scroll-view-wrapper {{!stv.tStart? 'withAnimate': ''}}" style="left: -{{stv.offset}}px">
+
+      <view style="width: {{stv.windowWidth}}px;" wx:for="{{tabs}}" wx:for-index="tab_index" wx:key="unique" class="one-scene">
+        <scroll-view data-index="{{tab_index}}" style="height:100%" scroll-y bindscrolltolower="loadMore" >
+          
+          <!-- 列表项 itemview -->
+          <view class='item_view' wx:for="{{tabs[tab_index].list}}" wx:key="unique" bindtap='itemTap'>
+            <image class="item_back_image" src="../../assets/image/coupon_item_bg.png"></image>
+            <image class='item_image' src='{{item.image_url}}' alrt="image"></image>
+
+            <!-- 文案  -->
+            <view class='flex-clomn'>
+              <text class="item_title">{{item.title}}</text>
+              <text class='item_date'>到期时间：{{item.date}}</text>
+            </view>
+            <view class='item_price_contain'>
+              
+              <!--条件渲染  -->
+              <block wx:if="{{tab_index==0}}">
+                <image src="../../assets/image/coupon_item_icon_default.png"></image>
+                <view class='item_price'>{{item.price}}</view>
+              </block>
+              <image wx:if="{{tab_index==1}}" src="../../assets/image/coupon_item_icon_used.png"></image>
+              <image wx:if="{{tab_index==2}}" src="../../assets/image/coupon_item_icon_no.png"></image>
+              
+            </view>
+          </view>
+          
+          <!-- 空白占位图  -->
+          <view hidden='{{tabs[tab_index].list.length > 0}}' class='placeholder}' bindtap="refresh" data-index="{{tab_index}}">{{tabs[tab_index].placeholder}}</view>
+
+          <!-- 上拉刷新 -->
+          <block wx:if="{{tabs[tab_index].list.length > 0}}">
+            <view class="loading_more loading_more_hold" hidden="{{tabs[tab_index].load_type!=0}}">上拉加载更多</view>
+            <view class="loading_more loading_more_loading" hidden="{{tabs[tab_index].load_type!=1}}">正在载入更多...</view>  
+            <view class="loading_more loading_more_complete" hidden="{{tabs[tab_index].load_type!=2}}">已加载全部</view>
+          </block>
+
+        </scroll-view>
+      </view>
+    </view>
+  </view>
+</view>

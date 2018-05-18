@@ -1,0 +1,150 @@
+.stv-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+}
+.withAnimate {
+  transition: all 100ms ease;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  -ms-perspective: 1000;
+  perspective: 1000;
+}
+.stv-container .tab-bar {
+  position: relative;
+  display: flex;
+  font-size: 30rpx;
+  color: #666666;
+  background-color: white;
+  border-top: 0.5rpx #dcdcdc solid;
+  border-bottom: 0.5rpx #dcdcdc solid;
+}
+.stv-container .tab-bar .tab-active {
+  color: #2d80ff;
+}
+.stv-container .tab-bar .tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 16rpx;
+  padding-bottom: 20rpx;
+}
+.stv-container .tab-bar .under-line {
+  position: absolute;
+  bottom: 0;
+  height: 6rpx;
+  background-color: #2d80ff;
+}
+.stv-container .scroll-view {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  background: #e7eaef;
+}
+.stv-container .scroll-view .scroll-view-wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+}
+.stv-container .scroll-view .scroll-view-wrapper .one-scene {
+  height: 100%;
+}
+
+.item_view {
+  border-bottom: 1rpx solid #dcdcdc;
+  margin: 10rpx 40rpx 0rpx 40rpx; 
+  height: 120rpx;
+  display: flex;
+  align-items: center;
+  background-color: white;
+}
+
+.item_back_image {
+  margin-left: -20rpx;
+  height: 100%;
+  width: 20rpx;
+}
+
+.item_image {
+  padding-left: 20rpx;
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.flex-clomn {
+  padding-left: 30rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.item_title{
+  font-size: 25rpx;
+  color: darkgray;
+}
+
+.item_date {
+  font-size: 20rpx;
+  color: lightgray;
+  margin-top: 10rpx;
+}
+
+.item_price_contain {
+  margin-left: auto;
+  min-width: 120rpx;
+  height: 100%;
+  position: relative;
+  margin-right: -10rpx; 
+}
+
+.item_price_contain image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.item_price {
+  color: white;
+  font-size: 40rpx;
+  position: relative;
+  height: 100%;
+  margin: 0rpx 15rpx 0rpx 10rpx;
+  text-align: center;
+  line-height: 120rpx;
+}
+
+.placeholder {
+  display: inline-flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  height: 90%;
+  width: 100%;
+  font-size: 40rpx;
+  color: gray;
+}
+
+.loading_more {
+  display: inline-flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  height: 80rpx;
+  width: 100%;
+  font-size: 30rpx; 
+  color: lightgray;
+}
