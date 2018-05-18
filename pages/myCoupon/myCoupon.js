@@ -8,21 +8,20 @@ class TabItem {
     this.title = title;            // 标题
     this.list = [];                // 数据列表
     this.placeholder = "点击刷新";  // 占位提示（刷新、网络错误、空白）
-    this.load_type = 0;        
-        // 0表示不显示，1表示加载中，2表示已加载全部
+    this.load_type = 0;            // 0表示不显示，1表示加载中，2表示已加载全部
   }
 }
 
 // 数据item
 class ListItem {
-  constructor(odd) {
+  constructor() {
     this.image_url = "../../assets/image/coupon_item_icon.png";
-    this.price = ListItem.randomNumber(20,100);
+    this.price = ListItem.randomNumber(5, 100);
     this.title = this.price + "元红包";
-    this.date = ListItem.randomNumber(2017,10) + "-03-02";
+    this.date = ListItem.randomNumber(2017, 2020) + "-03-02";
   }
   static randomNumber(min, max) {
-    return parseInt(Math.random() * (max-min) + min);
+    return parseInt(Math.random() * (max - min) + min);
   }
 }
 
@@ -32,10 +31,10 @@ function getEmptyTip(index) {
 }
 
 // 假数据
-function getFakeData(num=20) {
+function getFakeData(num = staticPageNumber) {
   var list = [];
   for (let i = 0; i < num; i++) {
-    let item = new ListItem(i % 2 == 0)
+    let item = new ListItem()
     list.push(item)
   }
   return list;
@@ -105,7 +104,7 @@ Page({
       };
 
       // fake
-      res.list = getFakeData(Math.random() > 0.5 ? 6:20);
+      res.list = getFakeData(Math.random() > 0.5 ? 6 : staticPageNumber);
 
       wx.hideLoading();
 
@@ -147,7 +146,7 @@ Page({
         tabs: tabs
       })
 
-    }, 2000);
+    }, 600);
   },
 
   // 加载更多

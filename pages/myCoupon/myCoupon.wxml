@@ -23,7 +23,7 @@
             <image class='item_image' src='{{item.image_url}}' alrt="image"></image>
 
             <!-- 文案  -->
-            <view class='flex-clomn'>
+            <view class='item_flex-clomn'>
               <text class="item_title">{{item.title}}</text>
               <text class='item_date'>到期时间：{{item.date}}</text>
             </view>
